@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周五接吻邀请 💌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: #ffe6ef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: #d6336c;
+        }
+        .container {
+            max-width: 360px;
+            padding: 30px 25px;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(214, 51, 108, 0.15);
+        }
+        .heart {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: beat 1.2s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #883350;
+        }
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .btn-wrap {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+        }
+        button {
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn {
+            background: #d6336c;
+            color: white;
+        }
+        #yesBtn:active {
+            transform: scale(0.95);
+        }
+        #noBtn {
+            background: #f8d0dd;
+            color: #d6336c;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="heart">❤️</div>
+    <h1>亲爱的宝贝</h1>
+    <p>
+        每天都很想紧紧抱着你，<br>
+        闻着你的味道，轻轻和你贴贴～<br>
+        积攒了好多想念，想好好吻你，<br>
+        把所有温柔和爱意都传给你
+    </p>
+    <div class="question">要不要周五一起接吻？</div>
+    <div class="btn-wrap">
+        <button id="yesBtn">是</button>
+        <button id="noBtn">否</button>
+    </div>
+</div>
+
+<script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+
+    yesBtn.addEventListener('click', () => {
+        alert('一言为定！❤️ 周五准时见面！');
+    });
+
+    noBtn.addEventListener('mouseover', moveNoBtn);
+    noBtn.addEventListener('click', moveNoBtn);
+    noBtn.addEventListener('touchstart', moveNoBtn);
+
+    function moveNoBtn() {
+        // 随机偏移
+        const x = (Math.random() - 0.5) * 160;
+        const y = (Math.random() - 0.5) * 160;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+</script>
+</body>
+</html>
