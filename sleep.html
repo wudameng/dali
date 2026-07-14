@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>和侄女的十二点睡觉约定</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1a1a3d, #2d2b55);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            max-width: 360px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffdf70;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .time {
+            font-size: 22px;
+            color: #ff88aa;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .btn-wrap {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+        }
+        button {
+            padding: 14px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .yes-btn {
+            background: #ff7799;
+            color: white;
+        }
+        .yes-btn:active {
+            transform: scale(0.95);
+        }
+        .no-btn {
+            background: #666;
+            color: white;
+            position: relative;
+            transition: 0.15s;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+        .modal-content {
+            background: #fff;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .modal-content button {
+            margin-top: 25px;
+            background: #ff7799;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>和宝贝侄女的睡眠约定 ✨</h1>
+    <p>郑重约定：<br>以后每天晚上</p>
+    <div class="time">晚上 12:00 准时睡觉！</div>
+    <p>不熬夜、不晚睡、好好休息，爱护眼睛，好好长高高～</p>
+    <p>愿意遵守这个约定吗？</p>
+    <div class="btn-wrap">
+        <button class="yes-btn" onclick="showModal()">我愿意！</button>
+        <button class="no-btn" id="noBtn">不要</button>
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        ✅一言为定！
+        <br>每晚十二点准时睡觉！
+        <br>说到做到哦！
+        <br>
+        <button onclick="closeModal()">拉钩上吊一百年不许变</button>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById('noBtn');
+    const modal = document.getElementById('modal');
+
+    // 弹窗
+    function showModal() {
+        modal.style.display = 'flex';
+    }
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // 否按钮逃跑逻辑
+    function moveNoBtn() {
+        const maxX = window.innerWidth - 120;
+        const maxY = window.innerHeight - 80;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+    }
+
+    // 鼠标/触摸触发逃跑
+    noBtn.addEventListener('mouseover', moveNoBtn);
+    noBtn.addEventListener('touchstart', function(e){
+        e.preventDefault();
+        moveNoBtn();
+    });
+</script>
+</body>
+</html>
